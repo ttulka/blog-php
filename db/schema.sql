@@ -1,4 +1,4 @@
-CREATE DATABASE `blog`;
+CREATE DATABASE IF NOT EXISTS `blog`;
 USE `blog`;
 
 CREATE TABLE `Category` (

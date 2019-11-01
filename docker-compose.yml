@@ -1,0 +1,30 @@
+version: "3.7"
+services:
+
+  db:
+    image: ttulka/blog-mysql:latest
+    build: ./db      
+    environment:
+      MYSQL_DATABASE: 'blog'
+      MYSQL_USER: 'blog'
+      MYSQL_PASSWORD: 'secret'
+      MYSQL_ROOT_PASSWORD: 'secret'
+    expose:
+      - '3306'
+    ports:
+      - '33060:3306'        
+    volumes:
+      - blog-mysql-data:/var/lib/mysql
+      
+  app:
+    image: ttulka/php:5.6.35-apache-rewrite-pdo-mysql
+    build: ./src
+    ports:
+      - '9090:80'
+    volumes:
+      - './src:/var/www/html:ro'
+    depends_on:
+      - db
+      
+volumes:
+  blog-mysql-data:        
