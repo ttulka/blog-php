@@ -51,7 +51,10 @@ CREATE TABLE `Comment` (
 ) DEFAULT CHARSET=utf8;
 
 
-INSERT INTO `Property` VALUES ('blogTitle', 'Tomas Tulka\'s Blog'), ('blogDescription', 'A small blog about programming and stuff.');
+INSERT INTO `Property` VALUES 
+  ('blogTitle', 'Tomas Tulka\'s Blog'), 
+  ('blogDescription', 'A small blog about programming and stuff.'),
+  ('blogAuthor', 'Tomas Tulka - NET21 s.r.o.');
 
 INSERT INTO `Category` VALUES (1, 'First Category'), (2, 'Second Category');
 
