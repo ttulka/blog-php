@@ -1,6 +1,12 @@
 CREATE DATABASE IF NOT EXISTS `blog`;
 USE `blog`;
 
+CREATE TABLE `Property` (
+  `name` VARCHAR(50) NOT NULL,
+  `value` VARCHAR(100) DEFAULT NULL,
+  PRIMARY KEY (`name`)
+) DEFAULT CHARSET=utf8;
+
 CREATE TABLE `Category` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(20) DEFAULT NULL,
@@ -45,6 +51,8 @@ CREATE TABLE `Comment` (
 ) DEFAULT CHARSET=utf8;
 
 
+INSERT INTO `Property` VALUES ('blogTitle', 'Tomas Tulka\'s Blog'), ('blogDescription', 'A small blog about programming and stuff.');
+
 INSERT INTO `Category` VALUES (1, 'First Category'), (2, 'Second Category');
 
 INSERT INTO `Author` VALUES (1, 'Tomas Tulka'), (2, 'John Smith');
@@ -53,31 +61,31 @@ INSERT INTO `Post` VALUES
   (1, 'first-post', '1399000', 'First Post', '<p><b>Lorem ipsum</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
   (2, 'second-post', '1398000', 'Second Post', '<p><b>Lorem ipsum 2</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 2 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 2, 2, 'false'),
   (3, 'draft-post', '1397000', 'Draft Post', '<p><b>Lorem ipsum draft</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum draft dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'true'),
-  (4, 'post-4', '1396000', 'Post 4', '<p><b>Lorem ipsum 4</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 4 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
-  (5, 'post-5', '1395000', 'Post 5', '<p><b>Lorem ipsum 5</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 5 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
-  (6, 'post-6', '1394000', 'Post 6', '<p><b>Lorem ipsum 6</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 6 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
-  (7, 'post-7', '1393000', 'Post 7', '<p><b>Lorem ipsum 7</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 7 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
-  (8, 'post-8', '1392000', 'Post 8', '<p><b>Lorem ipsum 8</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 8 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
-  (9, 'post-9', '1391000', 'Post 9', '<p><b>Lorem ipsum 9</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 9 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
-  (10, 'post-10', '1390000', 'Post 10', '<p><b>Lorem ipsum 10</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 10 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
-  (11, 'post-11', '1389000', 'Post 11', '<p><b>Lorem ipsum 11</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 11 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
-  (12, 'post-12', '1388000', 'Post 12', '<p><b>Lorem ipsum 12</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 12 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
-  (13, 'post-13', '1387000', 'Post 13', '<p><b>Lorem ipsum 13</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 13 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
-  (14, 'post-14', '1386000', 'Post 14', '<p><b>Lorem ipsum 14</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 14 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
-  (15, 'post-15', '1385000', 'Post 15', '<p><b>Lorem ipsum 15</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 15 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
-  (16, 'post-16', '1384000', 'Post 16', '<p><b>Lorem ipsum 16</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 16 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
-  (17, 'post-17', '1383000', 'Post 17', '<p><b>Lorem ipsum 17</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 17 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
-  (18, 'post-18', '1382000', 'Post 18', '<p><b>Lorem ipsum 18</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 18 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
-  (19, 'post-19', '1381000', 'Post 19', '<p><b>Lorem ipsum 19</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 19 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
-  (20, 'post-20', '1380000', 'Post 20', '<p><b>Lorem ipsum 20</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 20 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
-  (21, 'post-21', '1379000', 'Post 21', '<p><b>Lorem ipsum 21</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 21 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
-  (22, 'post-22', '1378000', 'Post 22', '<p><b>Lorem ipsum 22</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 22 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
-  (23, 'post-23', '1377000', 'Post 23', '<p><b>Lorem ipsum 23</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 23 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
-  (24, 'post-24', '1376000', 'Post 24', '<p><b>Lorem ipsum 24</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 24 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
-  (25, 'post-25', '1375000', 'Post 25', '<p><b>Lorem ipsum 25</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 25 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
-  (26, 'post-26', '1374000', 'Post 26', '<p><b>Lorem ipsum 26</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 26 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
-  (27, 'post-27', '1373000', 'Post 27', '<p><b>Lorem ipsum 27</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 27 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
-  (28, 'post-28', '1372000', 'Post 28', '<p><b>Lorem ipsum 28</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 28 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false');
+  (4, 'post-4-link', '1396000', 'Post 4', '<p><b>Lorem ipsum 4</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 4 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
+  (5, 'post-5-link', '1395000', 'Post 5', '<p><b>Lorem ipsum 5</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 5 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
+  (6, 'post-6-link', '1394000', 'Post 6', '<p><b>Lorem ipsum 6</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 6 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
+  (7, 'post-7-link', '1393000', 'Post 7', '<p><b>Lorem ipsum 7</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 7 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
+  (8, 'post-8-link', '1392000', 'Post 8', '<p><b>Lorem ipsum 8</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 8 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
+  (9, 'post-9-link', '1391000', 'Post 9', '<p><b>Lorem ipsum 9</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 9 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
+  (10, 'post-10-link', '1390000', 'Post 10', '<p><b>Lorem ipsum 10</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 10 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
+  (11, 'post-11-link', '1389000', 'Post 11', '<p><b>Lorem ipsum 11</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 11 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
+  (12, 'post-12-link', '1388000', 'Post 12', '<p><b>Lorem ipsum 12</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 12 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
+  (13, 'post-13-link', '1387000', 'Post 13', '<p><b>Lorem ipsum 13</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 13 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
+  (14, 'post-14-link', '1386000', 'Post 14', '<p><b>Lorem ipsum 14</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 14 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
+  (15, 'post-15-link', '1385000', 'Post 15', '<p><b>Lorem ipsum 15</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 15 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
+  (16, 'post-16-link', '1384000', 'Post 16', '<p><b>Lorem ipsum 16</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 16 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
+  (17, 'post-17-link', '1383000', 'Post 17', '<p><b>Lorem ipsum 17</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 17 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
+  (18, 'post-18-link', '1382000', 'Post 18', '<p><b>Lorem ipsum 18</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 18 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
+  (19, 'post-19-link', '1381000', 'Post 19', '<p><b>Lorem ipsum 19</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 19 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
+  (20, 'post-20-link', '1380000', 'Post 20', '<p><b>Lorem ipsum 20</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 20 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
+  (21, 'post-21-link', '1379000', 'Post 21', '<p><b>Lorem ipsum 21</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 21 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
+  (22, 'post-22-link', '1378000', 'Post 22', '<p><b>Lorem ipsum 22</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 22 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
+  (23, 'post-23-link', '1377000', 'Post 23', '<p><b>Lorem ipsum 23</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 23 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
+  (24, 'post-24-link', '1376000', 'Post 24', '<p><b>Lorem ipsum 24</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 24 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
+  (25, 'post-25-link', '1375000', 'Post 25', '<p><b>Lorem ipsum 25</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 25 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
+  (26, 'post-26-link', '1374000', 'Post 26', '<p><b>Lorem ipsum 26</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 26 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
+  (27, 'post-27-link', '1373000', 'Post 27', '<p><b>Lorem ipsum 27</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 27 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
+  (28, 'post-28-link', '1372000', 'Post 28', '<p><b>Lorem ipsum 28</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 28 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false');
   
 INSERT INTO `Comment` VALUES 
   (1, '1400000', 'Author 1', '1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', NULL, 1),
