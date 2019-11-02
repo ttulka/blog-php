@@ -64,7 +64,7 @@ INSERT INTO `Post` VALUES
   (1, 'first-post', '1399000', 'First Post', '<p><b>Lorem ipsum</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
   (2, 'second-post', '1398000', 'Second Post', '<p><b>Lorem ipsum 2</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 2 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 2, 2, 'false'),
   (3, 'draft-post', '1397000', 'Draft Post', '<p><b>Lorem ipsum draft</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum draft dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'true'),
-  (4, 'post-4-link', '1396000', 'Post 4', '<p><b>Lorem ipsum 4</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 4 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
+  (4, 'about', '1396000', 'About Me', '<p><b>Lorem ipsum About Me</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 4 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
   (5, 'post-5-link', '1395000', 'Post 5', '<p><b>Lorem ipsum 5</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 5 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
   (6, 'post-6-link', '1394000', 'Post 6', '<p><b>Lorem ipsum 6</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 6 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
   (7, 'post-7-link', '1393000', 'Post 7', '<p><b>Lorem ipsum 7</b> dolor sit amet, consectetur adipiscing elit.</p>', '<p><b>Lorem ipsum 7 dolor sit amet</b>,</p><p>consectetur adipiscing elit.</p>', 1, 1, 'false'),
