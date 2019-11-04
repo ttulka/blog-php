@@ -1,24 +1,35 @@
-<html>
-<body>
-<h1>INDEX</h1>
-
 <?php
-$host = 'db';
-$db = 'blog';
-$username = 'blog';
-$password = 'secret';
-$db = new PDO("mysql:host=" . $host . ";dbname=" . $db, $username, $password);
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$db->exec("set names utf8");
+namespace blog;
 
-$stmt = $db->prepare('SELECT title FROM Post');        
-$stmt->bindValue('id', (int)$articleId, PDO::PARAM_INT);        
-$stmt->execute();
-        
-while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-  echo $row['title'] . '<br>';
-}
-?>
+require_once('./domain/Categories.php');
+require_once('./domain/Properties.php');
+require_once('./domain/Posts.php');
+require_once('./domain/Sitemap.php');
 
-</body>
-</html>
+require_once('./app/PostController.php');
+require_once('./app/StaticContentController.php');
+require_once('./app/SitemapController.php');
+
+require_once('./app/BlogApplication.php');
+
+use PDO, blog;
+
+// Bootstrap the application
+
+$pdo = new PDO('mysql:host=' . getenv('DB_HOST') . ';dbname=' . getenv('DB_NAME') . ';charset=utf8',
+    getenv('DB_USER'), getenv('DB_PASS'));
+
+$categories = new Categories($pdo);
+$properties = new Properties($pdo);
+$posts = new Posts($pdo);
+$sitemap = new Sitemap($pdo);
+
+$application = new BlogApplication(
+    new PostController($posts, $categories, $properties),
+    new StaticContentController($categories, $properties),
+    new SitemapController($sitemap)
+);
+
+// Dispatch the request
+
+$application->dispatch($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI'], $_REQUEST);

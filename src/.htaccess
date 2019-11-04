@@ -1,7 +1,8 @@
 RewriteEngine on                                   
 
-RewriteRule ^articles/([0-9]+)/comments$ comments.php [NC,L]
-RewriteRule ^articles/([0-9]+)/comments/([0-9]+)$ comments.php [NC,L] 
+# A workaround for legacy links
+# Remove this after a while together with legacy.php
+RewriteRule ^(.+)-([0-9]+)$ legacy.php?id=$2 [NC,L] 
 
 RewriteRule !\.(js|ico|gif|jpg|png|css|html|htm|xml|txt|dat|pdf|json|php|ttf|woff|woff2)$ index.php [NC,L] 
 
@@ -9,6 +10,10 @@ RewriteRule !\.(js|ico|gif|jpg|png|css|html|htm|xml|txt|dat|pdf|json|php|ttf|wof
 php_flag magic_quotes_gpc off
 php_flag register_globals off
 php_flag short_open_tag on
+php_value date.timezone Europe/Berlin
 
 # App settings
-SetEnv BACKEND_ACCESS_KEY xxx
+SetEnv DB_HOST db
+SetEnv DB_NAME blog
+SetEnv DB_USER blog
+SetEnv DB_PASS secret
