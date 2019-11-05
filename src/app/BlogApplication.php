@@ -12,7 +12,11 @@ class BlogApplication extends Dispatcher {
     private $staticContentController;
     private $sitemapController;
 
-    public function __construct(PostController $postController, CommentController $commentController, StaticContentController $staticContentController, SitemapController $sitemapController) {
+    public function __construct(
+            PostController $postController,
+            CommentController $commentController,
+            StaticContentController $staticContentController,
+            SitemapController $sitemapController) {
         $this->postController = $postController;
         $this->commentController = $commentController;
         $this->staticContentController = $staticContentController;
