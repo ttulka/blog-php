@@ -13,7 +13,7 @@
   
   <aside class="blog-comments">
     <noscript>You need to enable JavaScript to see comments.</noscript>
-    <div id="comments" articleid="<?= $this->post->id ?>">Rendering comments...</div>
+    <div id="comments" postId="<?= $this->post->id ?>">Rendering comments...</div>
     <script src="/assets/js/comments.min.js"></script>
     <link href="/assets/css/comments.min.css" rel="stylesheet"> 
   </aside>

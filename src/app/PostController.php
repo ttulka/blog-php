@@ -17,7 +17,7 @@ class PostController extends AbstractBlogLayoutController {
     public function postDetail($url) {
         $post = $this->posts->byUrl($url);
         if ($post !== null) {
-            $this->addModelAttribute('post', $this->posts->byUrl($url));
+            $this->addModelAttribute('post', $post);
             $this->setPageTitle($post->title . ' by ' . $post->authorName);
             $this->setPageAuthor($post->authorName);
             $this->setActiveCaption($post->caption);

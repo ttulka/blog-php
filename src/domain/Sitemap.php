@@ -16,13 +16,13 @@ class Sitemap {
         $stmt->execute();
         $entries = [];
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $entries[] = new SitemapEntry($row['url'], $row['createdAt']);
+            $entries[] = new SitemapData($row['url'], $row['createdAt']);
         }
         return $entries;
     }
 }
 
-class SitemapEntry {
+class SitemapData {
 
     public $loc;
     public $lastmod;

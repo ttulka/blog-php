@@ -20,7 +20,7 @@ class Posts {
         $stmt->bindValue('url', $url, PDO::PARAM_STR);
         $stmt->execute();
         if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            return new PostDetailEntry($row['id'], $row['title'], $row['summary'], $row['body'],
+            return new PostDetailData($row['id'], $row['title'], $row['summary'], $row['body'],
                 $row['createdAt'], $row['isMenu'] === 'true' ? $url : $row['categoryId'],
                 $row['authorId'], $row['authorName']);
         }
@@ -50,7 +50,7 @@ class Posts {
         $stmt->execute();
         $posts = [];
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $posts[] = new PostListEntry($row['id'], $row['url'], $row['title'], $row['summary'],
+            $posts[] = new PostListData($row['id'], $row['url'], $row['title'], $row['summary'],
                 $row['createdAt'], $row['authorId'], $row['authorName']);
         }
         return $posts;
@@ -76,11 +76,11 @@ class Posts {
         }
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $row['postsCount'];
+        return $row['postsCount'] + 0;
     }
 }
 
-class PostDetailEntry {
+class PostDetailData {
 
     public $id;
     public $title;
@@ -103,7 +103,7 @@ class PostDetailEntry {
     }
 }
 
-class PostListEntry {
+class PostListData {
 
     public $id;
     public $url;

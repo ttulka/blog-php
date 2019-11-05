@@ -17,3 +17,4 @@ SetEnv DB_HOST db
 SetEnv DB_NAME blog
 SetEnv DB_USER blog
 SetEnv DB_PASS secret
+SetEnv EMAIL_ADMIN blog@ttulka.com

@@ -16,13 +16,13 @@ class Categories {
         $stmt->execute();
         $categories = [];
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $categories[] = new CategoryEntry($row['id'], $row['name']);
+            $categories[] = new CategoryData($row['id'], $row['name']);
         }
         return $categories;
     }
 }
 
-class CategoryEntry {
+class CategoryData {
 
     public $id;
     public $name;

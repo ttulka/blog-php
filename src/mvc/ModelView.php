@@ -16,10 +16,14 @@ class ModelView {
     public final function render() {
         switch ($this->type) {
             case 'xml':
-                header('Content-type: text/xml');
+                header('Content-type: text/xml; charset=UTF-8');
                 header('Pragma: public');
                 header('Cache-control: private');
                 header('Expires: -1');
+                break;
+            case 'json':
+                //header("Access-Control-Allow-Origin: " . ORIGIN_URL);
+                header("Content-Type: application/json; charset=UTF-8");
                 break;
             default:
                 header("Content-Type: text/html; charset=UTF-8");
