@@ -7,8 +7,12 @@ class Controller {
 
     protected $model = [];
 
-    protected function view($name, $type = 'html') {
-        return new ModelView($name, $this->model, $type);
+    protected function view($name, $model, $type) {
+        return new ModelView($name, $model, $type);
+    }
+
+    protected final function render($name, $type = 'html') {
+        return $this->view($name, $this->model, $type)->render();
     }
 
     protected final function addModelAttribute($key, $value) {

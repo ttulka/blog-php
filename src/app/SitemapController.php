@@ -15,6 +15,6 @@ class SitemapController extends Controller {
 
     public function sitemap() {
         $this->addModelAttribute('entries', $this->sitemap->entries());
-        return $this->view('sitemap', 'xml');
+        $this->render('sitemap', 'xml');
     }
 }

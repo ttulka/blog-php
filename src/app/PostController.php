@@ -22,7 +22,7 @@ class PostController extends AbstractBlogLayoutController {
             $this->setPageAuthor($post->authorName);
             $this->setActiveCaption($post->caption);
 
-            return $this->view('post');
+            $this->render('post');
         }
         $this->responseHeaderNotFound();
         return $this->posts();
@@ -38,6 +38,6 @@ class PostController extends AbstractBlogLayoutController {
             $page, $this->posts->countBy($categoryId, $authorId), $this->postsOnPage, $params));
         $this->setActiveCaption($categoryId);
 
-        return $this->view('posts');
+        $this->render('posts');
     }
 }

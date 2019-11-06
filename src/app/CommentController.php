@@ -40,7 +40,7 @@ class CommentController extends Controller {
             $this->addModelAttribute('result', array('comments' => []));
         }
 
-        return $this->view('comments', 'json');
+        $this->render('comments', 'json');
     }
 
     public function answers($commentId, $page) {
@@ -62,7 +62,7 @@ class CommentController extends Controller {
             $this->addModelAttribute('result', array('answers' => []));
         }
 
-        return $this->view('comments', 'json');
+        $this->render('comments', 'json');
     }
 
     public function publishComment($postId, $body, $author) {
@@ -73,7 +73,7 @@ class CommentController extends Controller {
         $this->notifyCommentPublished($published);
 
         $this->addModelAttribute('result', $published);
-        return $this->view('comments', 'json');
+        $this->render('comments', 'json');
     }
 
     public function publishAnswer($postId, $commentId, $body, $author) {
@@ -84,7 +84,7 @@ class CommentController extends Controller {
         $this->notifyCommentPublished($published);
 
         $this->addModelAttribute('result', $published);
-        return $this->view('comments', 'json');
+        $this->render('comments', 'json');
     }
 
     private function notifyCommentPublished($comment) {

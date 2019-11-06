@@ -10,6 +10,6 @@ class StaticContentController extends AbstractBlogLayoutController {
     }
 
     public function staticContent($name) {
-        return $this->view($name);
+        $this->render($name);
     }
 }

@@ -17,8 +17,8 @@ abstract class AbstractBlogLayoutController extends Controller {
         $this->properties = $properties;
     }
 
-    protected function view($name) {
-        return new BlogLayoutModelView($name, $this->model, $this->categories, $this->properties);
+    protected function view($name, $model, $type) {
+        return new BlogLayoutModelView($name, $model, $this->categories, $this->properties);
     }
 
     protected final function setPageTitle($title) {

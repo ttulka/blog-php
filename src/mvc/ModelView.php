@@ -33,9 +33,7 @@ class ModelView {
 
     public final function content() {
         ob_start();
-
         require_once "./view/{$this->name}.php";
-
         $out = ob_get_contents();
         ob_end_clean();
 
