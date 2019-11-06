@@ -23,39 +23,34 @@ class BlogApplication extends Dispatcher {
         $this->sitemapController = $sitemapController;
     }
 
-    public function dispatch($method, $path, $params) {
-        $path = $this->parsePath($path);
-
-        if (!empty($path) && !empty($path[0])) {
-            if ($path[0] === 'sitemap') {
+    public function route() {
+        return [
+            '/' => function($params) {
+                $this->postController->posts($params);
+            },
+            '/sitemap' => function() {
                 $this->sitemapController->sitemap();
-
-            } else if ($path[0] === 'privacypolicy') {
+            },
+            '/privacypolicy' => function() {
                 $this->staticContentController->staticContent('privacypolicy');
-
-            } else if ($path[0] === 'post' && !empty($path[2]) && $path[2] === 'comments') {
-                if (!empty($path[3])) {
-                    if ($method === 'GET') {
-                        $this->commentController->answers($path[3], $params['page']);
-                    } else if ($method === 'POST') {
-                        $this->commentController->publishAnswer($path[1], $path[3], $_POST['body'], $_POST['author']);
-                        http_response_code(201);
-                    }
-                } else {
-                    if ($method === 'GET') {
-                        $this->commentController->comments($path[1], $params['page']);
-                    } else if ($method === 'POST') {
-                        $this->commentController->publishComment($path[1], $_POST['body'], $_POST['author']);
-                        http_response_code(201);
-                    }
-                }
-            } else {
-                $this->postController->postDetail($path[0]);
+            },
+            '/{url}' => function($params) {
+                $this->postController->postDetail($params['url']);
+            },
+            '/post/{postId}/comments' => function($params) {
+                $this->commentController->comments($params['postId'], $params['page']);
+            },
+            'POST /post/{postId}/comments' => function($params) {
+                $this->commentController->publishComment($params['postId'], $params['body'], $params['author']);
+                http_response_code(201);
+            },
+            '/post/{postId}/comments/{commentId}' => function($params) {
+                $this->commentController->answers($params['commentId'], $params['page']);
+            },
+            'POST /post/{postId}/comments/{commentId}' => function($params) {
+                $this->commentController->publishAnswer($params['postId'], $params['commentId'], $params['body'], $params['author']);
+                http_response_code(201);
             }
-        } else if ($method === 'GET') {
-            $this->postController->posts($params);
-        } else {
-            http_response_code(400);
-        }
+        ];
     }
 }

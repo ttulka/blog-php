@@ -23,9 +23,11 @@ class PostController extends AbstractBlogLayoutController {
             $this->setActiveCaption($post->caption);
 
             $this->render('post');
+
+        } else {
+            $this->responseHeaderNotFound();
+            $this->posts();
         }
-        $this->responseHeaderNotFound();
-        return $this->posts();
     }
 
     public function posts($params = []) {
