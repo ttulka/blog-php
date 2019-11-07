@@ -42,14 +42,12 @@ class BlogApplication extends Dispatcher {
             },
             'POST /post/{postId}/comments' => function($params) {
                 $this->commentController->publishComment($params['postId'], $params['body'], $params['author']);
-                http_response_code(201);
             },
             '/post/{postId}/comments/{commentId}' => function($params) {
                 $this->commentController->answers($params['commentId'], $params['page']);
             },
             'POST /post/{postId}/comments/{commentId}' => function($params) {
                 $this->commentController->publishAnswer($params['postId'], $params['commentId'], $params['body'], $params['author']);
-                http_response_code(201);
             }
         ];
     }

@@ -71,6 +71,7 @@ class CommentController extends Controller {
         }
         $published = $this->comments->publish($postId, null, $body, $author);
         $this->notifyCommentPublished($published);
+        $this->setResponseCode(self::CREATED);
 
         $this->addModelAttribute('result', $published);
         $this->render('comments', 'json');
@@ -82,6 +83,7 @@ class CommentController extends Controller {
         }
         $published = $this->comments->publish($postId, $commentId, $body, $author);
         $this->notifyCommentPublished($published);
+        $this->setResponseCode(self::CREATED);
 
         $this->addModelAttribute('result', $published);
         $this->render('comments', 'json');

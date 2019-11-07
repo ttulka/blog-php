@@ -25,7 +25,7 @@ class PostController extends AbstractBlogLayoutController {
             $this->render('post');
 
         } else {
-            $this->responseHeaderNotFound();
+            $this->setResponseCode(self::NOT_FOUND);
             $this->posts();
         }
     }
