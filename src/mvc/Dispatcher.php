@@ -30,7 +30,11 @@ class Dispatcher {
         $this->route = $route;
     }
 
-    public final function dispatch($method, $path, $params) {
+    public final function dispatch() {
+        $method = $_SERVER['REQUEST_METHOD'];
+        $path = $_SERVER['REQUEST_URI'];
+        $params = $_REQUEST;
+
         $escapedPath = "{$method} " . str_replace('/', ':', '/' . $this->purePath($path));
 
         foreach ($this->route as $pattern => $handler) {
