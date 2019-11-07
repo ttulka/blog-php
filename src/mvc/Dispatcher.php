@@ -1,6 +1,8 @@
 <?php
 namespace mvc;
 
+use mysql_xdevapi\Exception;
+
 class Dispatcher {
 
     private $route;
@@ -53,7 +55,11 @@ class Dispatcher {
                 return $handler($params);
             }
         }
-        http_response_code(400);
+
+        http_response_code(404);
+        if (array_key_exists('/', $this->route)) {
+            $this->route['/']([]);
+        }
     }
 
     private final function purePath($path) {

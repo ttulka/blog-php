@@ -12,7 +12,7 @@ require_once('./app/CommentController.php');
 require_once('./app/StaticContentController.php');
 require_once('./app/SitemapController.php');
 
-require_once('./app/BlogApplication.php');
+require_once('./mvc/Dispatcher.php');
 
 use mvc\Dispatcher;
 use PDO;
@@ -45,9 +45,9 @@ $sitemapController = new SitemapController($sitemap);
     '/privacypolicy' => function() use($staticContentController) {
         $staticContentController->staticContent('privacypolicy');
     },
-    '/{url}' => function($params) use($postController) {
-        $postController->postDetail($params['url']);
-    },
+//    '/{url}' => function($params) use($postController) {
+//        $postController->postDetail($params['url']);
+//    },
     '/post/{postId}/comments' => function($params) use($commentController) {
         $commentController->comments($params['postId'], $params['page']);
     },
