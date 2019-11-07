@@ -1,36 +1,37 @@
 <?php
 namespace mvc;
 
-abstract class Dispatcher {
+class Dispatcher {
 
-    abstract protected function route();
-//    {
-//        return [
-//            '/' => function() {
-//                echo "INDEX";
-//            },
-//            'POST /abc'=> function() {
-//                echo "POST ABC";
-//            },
-//            '/abc'=> function() {
-//                echo "get ABC";
-//            },
-//            '/abc/{id}'=> function($params) {
-//                echo "ABC id={$params['id']}";
-//            },
-//            'GET /abc/{id}/xyz'=> function($params) {
-//                echo "GET ABC id={$params['id']} XYZ";
-//            },
-//            '/abc/{id1}/xyz/{id2}'=> function($params) {
-//                echo "ABC id1={$params['id1']} XYZ id2={$params['id2']}";
-//            }
-//        ];
-//    }
+    private $route;
+//    [
+//        '/' => function() {
+//            echo "INDEX";
+//        },
+//        'POST /abc'=> function() {
+//            echo "POST ABC";
+//        },
+//        '/abc'=> function() {
+//            echo "get ABC";
+//        },
+//        '/abc/{id}'=> function($params) {
+//            echo "ABC id={$params['id']}";
+//        },
+//        'GET /abc/{id}/xyz'=> function($params) {
+//            echo "GET ABC id={$params['id']} XYZ";
+//        },
+//        '/abc/{id1}/xyz/{id2}'=> function($params) {
+//            echo "ABC id1={$params['id1']} XYZ id2={$params['id2']}";
+//        }
+//    ]
+    public function __construct($route) {
+        $this->route = $route;
+    }
 
     public final function dispatch($method, $path, $params) {
         $escapedPath = "{$method} " . str_replace('/', ':', '/' . $this->purePath($path));
 
-        foreach ($this->route() as $pattern => $handler) {
+        foreach ($this->route as $pattern => $handler) {
             $pathParams = [];
             $matches = [];
             if (preg_match_all('/{(\w+)}/', $pattern, $matches)) {

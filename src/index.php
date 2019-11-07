@@ -14,6 +14,7 @@ require_once('./app/SitemapController.php');
 
 require_once('./app/BlogApplication.php');
 
+use mvc\Dispatcher;
 use PDO;
 
 // Bootstrap the application
@@ -27,13 +28,36 @@ $posts = new Posts($pdo);
 $comments = new Comments($pdo);
 $sitemap = new Sitemap($pdo);
 
-$application = new BlogApplication(
-    new PostController($posts, $categories, $properties),
-    new CommentController($comments, getenv('EMAIL_ADMIN')),
-    new StaticContentController($categories, $properties),
-    new SitemapController($sitemap)
-);
+$postController = new PostController($posts, $categories, $properties);
+$commentController = new CommentController($comments, getenv('EMAIL_ADMIN'));
+$staticContentController = new StaticContentController($categories, $properties);
+$sitemapController = new SitemapController($sitemap);
 
-// Dispatch the request
+// Define routing and dispatch
 
-$application->dispatch($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI'], $_REQUEST);
+(new Dispatcher([
+    '/' => function($params) use($postController) {
+        $postController->posts($params);
+    },
+    '/sitemap' => function() use($sitemapController) {
+        $sitemapController->sitemap();
+    },
+    '/privacypolicy' => function() use($staticContentController) {
+        $staticContentController->staticContent('privacypolicy');
+    },
+    '/{url}' => function($params) use($postController) {
+        $postController->postDetail($params['url']);
+    },
+    '/post/{postId}/comments' => function($params) use($commentController) {
+        $commentController->comments($params['postId'], $params['page']);
+    },
+    'POST /post/{postId}/comments' => function($params) use($commentController) {
+        $commentController->publishComment($params['postId'], $params['body'], $params['author']);
+    },
+    '/post/{postId}/comments/{commentId}' => function($params) use($commentController) {
+        $commentController->answers($params['commentId'], $params['page']);
+    },
+    'POST /post/{postId}/comments/{commentId}' => function($params) use($commentController) {
+        $commentController->publishAnswer($params['postId'], $params['commentId'], $params['body'], $params['author']);
+    }
+]))->dispatch($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI'], $_REQUEST);
