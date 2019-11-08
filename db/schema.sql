@@ -57,7 +57,7 @@ INSERT INTO `Property` VALUES
   ('blogDescription', 'A small blog about programming and stuff.'),
   ('blogAuthor', 'Tomas Tulka - NET21 s.r.o.');
 
-INSERT INTO `Category` VALUES (1, 'First Category'), (2, 'Second Category');
+INSERT INTO `Category` VALUES (1, 'Programming'), (2, 'Miscellaneous');
 
 INSERT INTO `Author` VALUES (1, 'Tomas Tulka'), (2, 'John Smith');
 
@@ -93,22 +93,6 @@ INSERT INTO `Post` VALUES
   
 INSERT INTO `Comment` VALUES 
   (1, '1400000', 'Author 1', '1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', NULL, 1),
-  (2, '1401000', 'Author 2', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 1, 1),
-  (3, '1402000', 'Author 3', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 1, 1),
-  (4, '1403000', 'Author 4', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 1, 1),
-  (5, '1404000', 'Author 5', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 1, 1),
-  (6, '1405000', 'Author 6', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 1, 1),
-  (7, '1406000', 'Author 7', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 1, 1),
-  (8, '1407000', 'Author 8', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 1, 1),
-  (9, '1408000', 'Author 9', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 1, 1),
-  (10, '1409000', 'Author 10', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 1, 1),
-  (11, '1410000', 'Author 11', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 1, 1),
-  (12, '1411000', 'Author 12', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 1, 1),
-  (13, '1412000', 'Author 13', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 1, 1),
-  (14, '1413000', 'Author 14', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 1, 1),
-  (15, '1414000', 'Author 15', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 1, 1),
-  (16, '1415000', 'Author 16', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 1, 1),
-  (17, '1416000', 'Author 17', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 1, 1),
   (18, '1417000', 'Author 18', '1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', NULL, 1),
   (19, '1418000', 'Author 19', '1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', NULL, 1),
   (20, '1419000', 'Author 20', '1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', NULL, 1),
@@ -130,6 +114,8 @@ INSERT INTO `Comment` VALUES
   (36, '1436000', 'Author 36', '1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', NULL, 1),
   (37, '1437000', 'Author 37', '1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', NULL, 1),
   (38, '1438000', 'Author 38', '1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', NULL, 1),
+  (100, '1401000', 'Author 100', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 38, 1),
+  (101, '1402000', 'Author 101', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 38, 1),
   (39, '1439000', 'Author 39', '1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', NULL, 1),
   (40, '1440000', 'Author 40', '1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', NULL, 1),
   (41, '1440000', 'Author 41', '1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', NULL, 1),
@@ -147,5 +133,21 @@ INSERT INTO `Comment` VALUES
   (53, '1440000', 'Author 53', '1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', NULL, 1),
   (54, '1440000', 'Author 54', '1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', NULL, 1),
   (55, '1440000', 'Author 55', '1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', NULL, 1),
+  (200, '1401000', 'Author 200', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 55, 1),
+  (201, '1402000', 'Author 201', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 55, 1),
+  (202, '1403000', 'Author 202', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 55, 1),
+  (203, '1404000', 'Author 203', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 55, 1),
+  (204, '1405000', 'Author 204', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 55, 1),
+  (205, '1406000', 'Author 205', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 55, 1),
+  (206, '1407000', 'Author 206', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 55, 1),
+  (207, '1408000', 'Author 207', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 55, 1),
+  (208, '1409000', 'Author 208', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 55, 1),
+  (209, '1410000', 'Author 209', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 55, 1),
+  (210, '1411000', 'Author 210', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 55, 1),
+  (211, '1412000', 'Author 211', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 55, 1),
+  (212, '1413000', 'Author 212', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 55, 1),
+  (213, '1414000', 'Author 213', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 55, 1),
+  (214, '1415000', 'Author 214', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 55, 1),
+  (215, '1416000', 'Author 215', '1-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 55, 1),
   (56, '1440000', 'Author 56', '1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.', NULL, 1);
   
