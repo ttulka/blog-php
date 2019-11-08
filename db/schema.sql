@@ -21,7 +21,7 @@ CREATE TABLE `Author` (
 
 CREATE TABLE `Post` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `url` VARCHAR(100) NOT NULL,
+  `url` VARCHAR(100) UNIQUE NOT NULL,
   `createdAt` int(10) unsigned NOT NULL,
   `title` VARCHAR(100) NOT NULL,
   `summary` TEXT,
