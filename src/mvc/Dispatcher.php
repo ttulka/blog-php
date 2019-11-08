@@ -1,11 +1,37 @@
 <?php
 namespace mvc;
 
-use mysql_xdevapi\Exception;
-
 class Dispatcher {
 
-    private $route;
+    private $router;
+
+    public function __construct($routing) {
+        $this->router = new Router($routing);
+    }
+
+    public final function dispatch() {
+        $this->router->route(
+            $_SERVER['REQUEST_METHOD'],
+            $this->pathFromUri($_SERVER['REQUEST_URI']),
+            $_REQUEST);
+    }
+
+    private final function pathFromUri($path) {
+        $path = !empty($path) && $path[strlen($path) - 1] == '/' ? substr($path, 0, strlen($path) - 1) : $path;
+        if (empty($path)) {
+            return '';
+        }
+        $queryPos = strpos($path, '?');
+        if ($queryPos !== FALSE) {
+            $path = substr($path, 0, $queryPos);
+        }
+        return $path[0] === '/' ? substr($path, 1) : $path;
+    }
+}
+
+class Router {
+
+    private $routing;
 //    [
 //        '/' => function() {
 //            echo "INDEX";
@@ -26,37 +52,25 @@ class Dispatcher {
 //            echo "ABC id1={$params['id1']} XYZ id2={$params['id2']}";
 //        }
 //    ]
-    public function __construct($route) {
-        $this->route = $route;
+    function __construct($routing) {
+        $this->routing = $routing;
     }
 
-    public final function dispatch() {
-        $method = $_SERVER['REQUEST_METHOD'];
-        $path = $_SERVER['REQUEST_URI'];
-        $params = $_REQUEST;
+    public final function route($method, $path, $params) {
+        $path = "{$method} " . $this->withEscapedSlashes("/{$path}");
 
-        $escapedPath = "{$method} " . str_replace('/', ':', '/' . $this->purePath($path));
-
-        foreach ($this->route as $pattern => $handler) {
-            $pathParams = [];
-            $matches = [];
-            if (preg_match_all('/{(\w+)}/', $pattern, $matches)) {
-                $pathParams = $matches[1];
-                $pattern = preg_replace('/{\w+}/', '([^:]+)', $pattern);
+        foreach ($this->routing as $pattern => $handler) {
+            $patternParams = $this->patternParams($pattern);
+            if (!empty($patternParams)) {
+                $pattern = $this->withGreedyPatternParams($pattern);
             }
 
-            $escapedPattern = str_replace('/', ':', $pattern);
+            $pattern = $this->withEscapedSlashes($pattern);
+            $pattern = $this->withMethod($pattern);
 
-            if (!preg_match("/^[A-Z]+ .+$/i", $escapedPattern)) {
-                $escapedPattern = "GET {$escapedPattern}";
-            }
-
-            $matches = [];
-            if (preg_match("/^{$escapedPattern}$/i", $escapedPath, $matches)) {
-                for ($i = 0; $i < sizeof($pathParams); $i++) {
-                    $params[$pathParams[$i]] = $matches[$i + 1];
-                }
-                return $handler($params);
+            if ($this->patternMatchesWithParamsEnhancement($pattern, $path, $patternParams, $params)) {
+                $handler($params);
+                return;
             }
         }
 
@@ -66,15 +80,32 @@ class Dispatcher {
         }
     }
 
-    private final function purePath($path) {
-        $path = !empty($path) && $path[strlen($path) - 1] == '/' ? substr($path, 0, strlen($path) - 1) : $path;
-        if (empty($path)) {
-            return '';
+    private function patternMatchesWithParamsEnhancement($pattern, $path, $patternParams, &$params) {
+        if (preg_match("/^{$pattern}$/i", $path, $matches)) {
+            for ($i = 0; $i < sizeof($patternParams); $i++) {
+                $params[$patternParams[$i]] = $matches[$i + 1];
+            }
+            return true;
         }
-        $queryPos = strpos($path, '?');
-        if ($queryPos !== FALSE) {
-            $path = substr($path, 0, $queryPos);
+        return false;
+    }
+
+    private function patternParams($pattern) {
+        $matches = [];
+        if (preg_match_all('/{(\w+)}/', $pattern, $matches)) {
+            return $matches[1];
         }
-        return $path[0] === '/' ? substr($path, 1) : $path;
+    }
+
+    private function withEscapedSlashes($pattern) {
+        return str_replace('/', ':', $pattern);
+    }
+
+    private function withMethod($pattern) {
+        return !preg_match("/^[A-Z]+ .+$/i", $pattern) ? "GET {$pattern}" : $pattern;
+    }
+
+    private function withGreedyPatternParams($pattern) {
+        return preg_replace('/{\w+}/', '([^:]+)', $pattern);
     }
 }
