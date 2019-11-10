@@ -21,3 +21,6 @@ See in action: http://blog.ttulka.com
 index.php
     Entry point
 ```
+
+## Setup
+Do unnecessary changes in `.htaccess`
