@@ -5,8 +5,8 @@ class Dispatcher {
 
     private $router;
 
-    public function __construct($routing) {
-        $this->router = new Router($routing);
+    public function __construct() {
+        $this->router = new Router();
     }
 
     public final function dispatch() {
@@ -14,6 +14,11 @@ class Dispatcher {
             $_SERVER['REQUEST_METHOD'],
             $this->pathFromUri($_SERVER['REQUEST_URI']),
             $_REQUEST);
+    }
+
+    public final function routing($pattern, $action) {
+        $this->router->addRouting($pattern, $action);
+        return $this;
     }
 
     private final function pathFromUri($path) {
@@ -31,7 +36,7 @@ class Dispatcher {
 
 class Router {
 
-    private $routing;
+    private $routing = [];
 //    [
 //        '/' => function() {
 //            echo "INDEX";
@@ -52,8 +57,9 @@ class Router {
 //            echo "ABC id1={$params['id1']} XYZ id2={$params['id2']}";
 //        }
 //    ]
-    function __construct($routing) {
-        $this->routing = $routing;
+
+    public final function addRouting($pattern, $action) {
+        $this->routing[$pattern] = $action;
     }
 
     public final function route($method, $path, $params) {

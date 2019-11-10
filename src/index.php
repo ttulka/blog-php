@@ -35,29 +35,29 @@ $sitemapController = new SitemapController($sitemap);
 
 // Define routing and dispatch
 
-(new Dispatcher([
-    '/' => function($params) use($postController) {
+(new Dispatcher())
+    ->routing('/', function($params) use($postController) {
         $postController->posts($params);
-    },
-    '/sitemap' => function() use($sitemapController) {
+    })
+    ->routing('/sitemap', function() use($sitemapController) {
         $sitemapController->sitemap();
-    },
-    '/privacypolicy' => function() use($staticContentController) {
+    })
+    ->routing('/privacypolicy', function() use($staticContentController) {
         $staticContentController->staticContent('privacypolicy');
-    },
-    '/{url}' => function($params) use($postController) {
+    })
+    ->routing('/{url}', function($params) use($postController) {
         $postController->postDetail($params['url']);
-    },
-    '/post/{postId}/comments' => function($params) use($commentController) {
+    })
+    ->routing('/post/{postId}/comments', function($params) use($commentController) {
         $commentController->comments($params['postId'], $params['page']);
-    },
-    'POST /post/{postId}/comments' => function($params) use($commentController) {
+    })
+    ->routing('POST /post/{postId}/comments', function($params) use($commentController) {
         $commentController->publishComment($params['postId'], $params['body'], $params['author']);
-    },
-    '/post/{postId}/comments/{commentId}' => function($params) use($commentController) {
+    })
+    ->routing('/post/{postId}/comments/{commentId}', function($params) use($commentController) {
         $commentController->answers($params['commentId'], $params['page']);
-    },
-    'POST /post/{postId}/comments/{commentId}' => function($params) use($commentController) {
+    })
+    ->routing('POST /post/{postId}/comments/{commentId}', function($params) use($commentController) {
         $commentController->publishAnswer($params['postId'], $params['commentId'], $params['body'], $params['author']);
-    }
-]))->dispatch();
+    })
+    ->dispatch();
