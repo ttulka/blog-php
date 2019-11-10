@@ -23,4 +23,4 @@ index.php
 ```
 
 ## Setup
-Do unnecessary changes in `.htaccess`
+Do necessary changes in `.htaccess`
