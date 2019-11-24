@@ -12,7 +12,9 @@ class Sitemap {
     }
 
     public function entries() {
-        $stmt = $this->pdo->prepare('SELECT url, createdAt FROM Post ORDER BY createdAt DESC, id DESC');
+        $stmt = $this->pdo->prepare("SELECT url, createdAt FROM Post 
+										WHERE isDraft = 'false' 
+										ORDER BY createdAt DESC, id DESC");
         $stmt->execute();
         $entries = [];
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
