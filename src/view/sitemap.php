@@ -15,7 +15,7 @@ $host = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "htt
   foreach ($this->entries as $entry) { ?>  
 <url>
   <loc><?= $host . $entry->loc ?></loc>
-  <lastmod><?= date('c', $entry->lastmod * 1000) ?></lastmod>
+  <lastmod><?= date('c', $entry->lastmod) ?></lastmod>
   <priority>0.80</priority>
 </url>
 <?php } ?>
