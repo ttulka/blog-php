@@ -37,7 +37,7 @@ class CommentController extends Controller {
             $this->addModelAttribute('result', $result);
 
         } else {
-            $this->addModelAttribute('result', array('comments' => []));
+            $this->addModelAttribute('result', ['comments' => []]);
         }
 
         $this->render('comments', 'json');
@@ -59,7 +59,7 @@ class CommentController extends Controller {
             $this->addModelAttribute('result', $result);
 
         } else {
-            $this->addModelAttribute('result', array('answers' => []));
+            $this->addModelAttribute('result', ['answers' => []]);
         }
 
         $this->render('comments', 'json');
