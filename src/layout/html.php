@@ -7,6 +7,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.png">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@tomas_tulka">
+    <meta name="twitter:creator" content="@tomas_tulka">
+    <meta name="twitter:title" content="<?= $this->pageTitle() ?>">
+    <meta property="og:url" content="https://<?= $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'] ?>" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="<?= $this->pageTitle() ?>" />
                     
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/blog.css" rel="stylesheet">
