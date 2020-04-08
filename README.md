@@ -1,5 +1,5 @@
 # Blog in PHP
-Source code for http://blog.ttulka.com
+Source code for https://blog.ttulka.com
 
 ## Docker Infrastructure
 
