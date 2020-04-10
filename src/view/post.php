@@ -13,9 +13,11 @@
   
   <aside class="blog-comments">
     <noscript>You need to enable JavaScript to see comments.</noscript>
-    <div id="comments" postId="<?= $this->post->id ?>">Rendering comments...</div>
+    <comments-app id="comments" 
+        service="https://<?= $_SERVER['SERVER_NAME'] ?>/" 
+        postId="<?= $this->post->id ?>">
+    </comments-app>
     <script src="/assets/js/comments.min.js"></script>
-    <link href="/assets/css/comments.min.css" rel="stylesheet"> 
   </aside>
 
 </main><!-- /.container -->
