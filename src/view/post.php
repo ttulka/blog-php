@@ -17,7 +17,7 @@
         service="https://<?= $_SERVER['SERVER_NAME'] ?>/" 
         postId="<?= $this->post->id ?>">
     </comments-app>
-    <script src="/assets/js/comments.min.js"></script>
+    <script src="/assets/js/comments.min.js" async></script>
   </aside>
 
 </main><!-- /.container -->
