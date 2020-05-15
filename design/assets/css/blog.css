@@ -55,6 +55,7 @@ hr {
     color: var(--gray, gray);
     font-style: italic;
     font-size: 1.2em;
+    margin-top: 0;
 }
 .quote::before {
     content: "„";
