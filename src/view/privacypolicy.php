@@ -1,5 +1,3 @@
-<main role="main" class="container">  
-
 <h1>Privacy Policy</h1>
 This privacy policy has been compiled to better serve those who are 
 concerned with how their 'Personally Identifiable Information' (PII) is 
@@ -11,7 +9,7 @@ carefully to get a clear understanding of how we collect, use, protect
 or otherwise handle your Personally Identifiable Information in 
 accordance with our website.<br></div><span id="infoCo"></span><br><div class="grayText"><strong>What personal information do we collect from the people that visit our blog, website or app?</strong></div><br><div class="innerText">When
  ordering or registering on our site, as appropriate, you may be asked 
-to enter your  or other details to help you with your experience.</div><br><div class="grayText"><strong>When do we collect information?</strong></div><br><div class="innerText">We collect information from you when you or enter information on our site.</div><br> <span id="infoUs"></span><br><div class="grayText"><strong>How do we use your information? </strong></div><br><div class="innerText">
+to enter your  or other details to help you with your experience.</div><br><div class="grayText"><strong>When do we collect information?</strong></div><br><div class="innerText">We collect information from you when you or enter information on our site.</div><span id="infoUs"></span><br><div class="grayText"><strong>How do we use your information? </strong></div><br><div class="innerText">
  We may use the information we collect from you when you register, make a
  purchase, sign up for our newsletter, respond to a survey or marketing 
 communication, surf the website, or use certain other site features in 
@@ -79,4 +77,3 @@ establishes requirements for commercial messages, gives recipients the
 right to have emails stopped from being sent to them, and spells out 
 tough penalties for violations.<br><br></div><div class="innerText"><strong>We collect your email address in order to:</strong></div><div class="innerText"><br><strong>To be in accordance with CANSPAM, we agree to the following:</strong></div><div class="innerText"><strong><br>If at any time you would like to unsubscribe from receiving future emails, you can email us at</strong></div> and we will promptly remove you from <strong>ALL</strong> correspondence.</div><br><span id="ourCon"></span><br><div class="blueText"><strong>Contacting Us</strong></div><br><div class="innerText">If there are any questions regarding this privacy policy, you may contact us using the information below.<br><br></div><div class="innerText">blog.ttulka.com</div><div class="innerText"><br>Last Edited on 2018-04-29</div>
 <br>
-</main>

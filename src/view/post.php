@@ -1,23 +1,24 @@
-<main role="main" class="container">
+<article class="blog-post">
+    
+    <h1 class="blog-post__title"><?= $this->post->title ?></h1>
 
-  <h1 class="blog-title"><?= $this->post->title ?></h1>          
-  
-  <article class="blog-post">
-      <p class="blog-post-meta">
-          <?= gmdate("Y-m-d", $this->post->createdAt) ?>
-          by <a href="/?author=<?= $this->post->authorId ?>"><?= $this->post->authorName ?></a></p>
-      <p><?= $this->post->summary ?></p>
-      <hr>
-      <p><?= $this->post->body ?></p>
-  </article>
-  
-  <aside class="blog-comments">
-    <noscript>You need to enable JavaScript to see comments.</noscript>
-    <comments-app id="comments" 
-        service="https://<?= $_SERVER['SERVER_NAME'] ?>/" 
-        postId="<?= $this->post->id ?>">
-    </comments-app>
-    <script src="/assets/js/comments.min.js" async></script>
-  </aside>
+    <p class="blog-post__meta">
+        <?= gmdate("Y-m-d", $this->post->createdAt) ?>
+        by <a href="/?author=<?= $this->post->authorId ?>"><?= $this->post->authorName ?></a></p>
+    
+    <?= $this->post->summary ?>
+    
+    <hr>
+    
+    <?= $this->post->body ?>
 
-</main><!-- /.container -->
+</article>
+
+<aside class="blog-comments">
+  <noscript>You need to enable JavaScript to see comments.</noscript>
+  <comments-app id="comments" 
+      service="https://<?= $_SERVER['SERVER_NAME'] ?>/" 
+      postId="<?= $this->post->id ?>">
+  </comments-app>
+  <script src="/assets/js/comments.min.js" async></script>
+</aside>

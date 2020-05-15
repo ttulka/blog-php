@@ -33,7 +33,6 @@ a:hover, a:active {
 }
 
 p, h1, h2, h3, h4 {
-    margin-top: 0.5em;
     margin-bottom: 0;
 }
 
@@ -42,6 +41,7 @@ code {
     padding: 0.2em 0.5em;
     font-weight: 700;
     vertical-align: middle;
+    white-space: nowrap;
 }
 
 hr {
@@ -98,7 +98,8 @@ a.button-outline-secondary {
 
 .header > .container, .main, .footer > .container {
     max-width: var(--max-width, 100%);
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .header {
@@ -157,16 +158,19 @@ a.button-outline-secondary {
 
 .main {
     padding: 0 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2.5rem;
 }
 .main img {
     max-width: 100%;
+    margin: 1rem 0;
 }
 .blog-title {
     font-size: 2em;
 }
 .blog-description {
     color: var(--gray, gray);
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 .blog-post {
     margin-bottom: 3rem;
@@ -182,6 +186,7 @@ h2.blog-post__title {
 }
 .blog-post__meta {
     color: var(--gray, gray);
+    margin: 0;
 }
 
 .footer {
@@ -225,6 +230,12 @@ h2.blog-post__title {
 
     .main {
         padding: 0 2rem;
+    }
+    .main img {
+        margin: 2rem 0;
+    }
+    .blog-description {
+        margin-bottom: 3rem;
     }
     
     .footer > .container {
