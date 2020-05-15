@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Colored Services by Tomas Tulka</title>
+    <meta name="description" content="A small blog about programming and stuff.">
+    <meta name="author" content="Tomas Tulka">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@tomas_tulka">
+    <meta name="twitter:creator" content="@tomas_tulka">
+    <meta name="twitter:title" content="Colored Services by Tomas Tulka">
+    <meta property="og:url" content="https://blog.ttulka.com/colored-services" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Colored Services by Tomas Tulka" />
+
+<link href="https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@400;700&display=swap" rel="stylesheet">
+
+    <link href="/assets/css/blog.css" rel="stylesheet">
+    <link href="/assets/css/syntaxhighlighter-theme-eclipse.css" rel="stylesheet">
+  </head>
+  <body>
+    
+    <header class="header">
+      <div class="container">
+        <nav class="nav">
+          <a href="/">Home</a>
+          <a class="extended" href="/?category=1">Programming</a>
+          <a class="extended active" href="/?category=2">Miscellaneous</a>
+          <a href="/about">About</a>
+        </nav>
+        <div class="ext-links">
+          <a href="https://twitter.com/tomas_tulka"><img src="/assets/img/twitter.png"></a>
+          <a href="https://github.com/ttulka"><img src="/assets/img/github.png"></a>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+
+      <h1 class="blog-title">Tomas Tulka's Blog</h1>
+      <p class="blog-description">Thoughts about programming and stuff.</p>
+      <hr>
+      
+      <div class="blog-post">
+        <h2 class="blog-post__title">
+          <a href="/what-is-a-repository">What is a Repository</a>
+        </h2>
+        <p class="blog-post__meta">2020-04-14 by <a href="/?author=1">Tomas Tulka</a></p>
+        <p>Which purpose has a Repository? To which layer does it belong to? And how to implement it correctly?</p>
+      </div>
+      <div class="blog-post">
+        <h2 class="blog-post__title">
+          <a href="/domain-collections">Domain Collections</a>
+        </h2>
+        <p class="blog-post__meta">2020-04-08 by <a href="/?author=1">Tomas Tulka</a></p>
+        <p><p>Collection, List and Set are terms very familiar to developers but hardly used by business experts. Therefore, they should not be part of the domain (API).</p></p>
+      </div>
+
+      <nav class="blog-pagination">
+        <a class="button-outline-primary" href="/?page=1">Older</a>
+        <a class="button-outline-secondary disabled" href="#">Newer</a>
+      </nav>
+
+      <article class="blog-post">
+        <h1 class="blog-post__title">Colored Services</h1>
+        <p class="blog-post__meta">2020-05-04 by <a href="/?author=1">Tomas Tulka</a></p>
+
+        <p>Defining service boundaries is hard. Let's bring some colors and make it fun!</p>
+        <hr>
+        <p>I’ve heard about this technique for the first time from <a href="http://udidahan.com/" target="_blank">Udi Dahan</a>, but unfortunately it seems no paper is to be found on the topic. This is my humble attempt.</p>
+        
+        <blockquote class="quote">Build a future where people live in harmony with nature.</blockquote>
+
+        <p>Now, we can analyze those and scratch the first services.</p>
+        <ul>
+          <li><b>Find products</b></li>
+            <ul>
+              <li>Product ID</li>
+          	  <li>Title</li>
+    	      <li>Description</li>
+            </ul>
+        </ul>
+        
+        <p>That's pretty obvious. The service needs to have the <code>product title</code>, description and price.</p>
+
+        <pre class="brush: java">
+@GetMapping
+public Account login(String username, String password) {
+    return accounts.login(username, password);
+}
+        </pre>
+
+        <p>Because <code>Account</code> provides a <code>getUsername()</code> method, the response looks like:</p>
+        <pre class="brush: json">
+{
+    "username": "test"
+}
+        </pre>
+
+        <h3>Some Example</h3>
+
+        <p>For categories, we probably want some nice looking URIs in our e-shop like <i>/toys</i> or <i>/books</i>. The URI will be used for searching. As we neither want to have URI duplicated in products nor to do two hops to get the Category ID first, we put the <i>List categories</i> use-case into the same service as both <i>Find products</i> use-cases. Let's call it <span style="color:#1155cc">“Blue“:</p>
+
+        <h4>Blue Service</h4>
+
+        <p><img src="https://raw.githubusercontent.com/ttulka/blog-assets/master/colored-services/blue-service.png" alt="Blue service"/></p>
+
+        <p>Happy coloring!</p>
+      </article>
+
+      <aside class="blog-comments">
+        <noscript>You need to enable JavaScript to see comments.</noscript>
+        <comments-app id="comments" service="https://blog.ttulka.com/" postId="74"></comments-app>
+        <script src="/assets/js/comments.min.js"></script>
+      </aside>
+    </main>
+    
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__extended">© 2020 Tomas Tulka (ttulka)</div>
+        <div class="footer__menu">
+          <a href="/">Home</a> |
+          <a href="/privacypolicy">Privacy Policy</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/js/syntaxhighlighter.min.js"></script> 
+  </body>
+</html>
