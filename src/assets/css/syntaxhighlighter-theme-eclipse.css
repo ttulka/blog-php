@@ -28,7 +28,7 @@
   vertical-align: baseline !important;
   width: auto !important;
   box-sizing: content-box !important;
-  font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important;
+  font-family: monospace !important;
   font-weight: normal !important;
   font-style: normal !important;
   font-size: 1em !important;
@@ -74,7 +74,7 @@
           white-space: pre !important; }
     .syntaxhighlighter table td.gutter .line {
       text-align: right !important;
-      padding: 0 0.5em 0 1em !important; }
+      padding: 0 0.5em !important; }
     .syntaxhighlighter table td.code .line {
       padding: 0 1em !important; }
   .syntaxhighlighter.nogutter td.code .container textarea, .syntaxhighlighter.nogutter td.code .line {
