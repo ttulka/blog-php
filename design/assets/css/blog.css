@@ -60,6 +60,8 @@ comments-app {
     font-style: italic;
     font-size: 1.2em;
     margin-top: 0;
+    margin-right: 0;
+    margin-left: 0;
 }
 .quote::before {
     content: "„";
@@ -241,6 +243,10 @@ h2.blog-post__title {
     }
     .blog-description {
         margin-bottom: 3rem;
+    }
+    .quote {
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
     
     .footer > .container {
