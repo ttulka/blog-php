@@ -87,7 +87,7 @@ a.button-outline-secondary:hover, a.button-outline-secondary:active {
     background-color: var(--secondary, lightblue);
     color: var(--white, white);
 }
-a.button-outline-secondary.disabled, a.button-outline-secondary.disabled {
+a.button-outline-primary.disabled, a.button-outline-secondary.disabled {
     cursor: default;
     border-color: var(--lightgray, silver);
     background-color: var(--white, white);
