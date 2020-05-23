@@ -236,7 +236,7 @@ pre,
 }
 pre {
     padding: 1rem !important;
-    overflow: scroll;
+    overflow: auto;
 }
 
 @media (min-width: 42rem) {
