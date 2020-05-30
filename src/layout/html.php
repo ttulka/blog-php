@@ -16,7 +16,7 @@
     <meta property="og:type" content="article" />
     <meta property="og:title" content="<?= $this->pageTitle() ?>" />
                     
-    <link href="/assets/css/syntaxhighlighter-theme-eclipse.css" rel="stylesheet">
+    <link href="/assets/css/syntaxhighlighter.css" rel="stylesheet">
     <link href="/assets/css/blog.css" rel="stylesheet">
   </head>
   <body>

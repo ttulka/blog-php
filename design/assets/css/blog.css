@@ -36,14 +36,6 @@ p, h1, h2, h3, h4 {
     margin-bottom: 0;
 }
 
-code {
-    border: 1px dashed var(--gray, gray);
-    padding: 0.2em 0.5em;
-    font-weight: 700;
-    vertical-align: middle;
-    white-space: nowrap;
-}
-
 hr {
     border: 0;
     height: 0;
@@ -214,15 +206,26 @@ h2.blog-post__title {
 }
 
 pre,
+code,
+.syntaxhighlighter {
+    border: 1px dashed var(--lightgray, silver) !important;
+    border-radius: 5px;
+    background-color: var(--light, lightgray) !important;
+}
+pre,
 .syntaxhighlighter {
     box-sizing: border-box !important;
     margin: 2rem 0 !important;
-    border: 1px dashed gray !important;
     padding: 1rem 0 !important;
-}
+}    
 pre {
     padding: 1rem !important;
     overflow: auto;
+}
+code {
+    padding: 0.2em 0.5em;
+    vertical-align: middle;
+    white-space: nowrap;
 }
 
 @media (min-width: 42rem) {
