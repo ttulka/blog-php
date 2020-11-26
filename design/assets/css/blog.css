@@ -67,6 +67,7 @@ comments-app {
 }
 
 .caption {
+    display: inline-block;
     font-size: 80%;
     font-style: italic;
     color: var(--gray, gray);
@@ -174,6 +175,10 @@ a.button-outline-secondary {
     max-width: 100%;
     margin: 1rem 0;
 }
+.main img ~ .caption {
+    position: relative;
+    top: -1rem;
+}
 .blog-title {
     font-size: 2em;
 }
@@ -258,6 +263,10 @@ code {
     }
     .main img {
         margin: 2rem 0;
+    }
+    .main img ~ .caption {
+        position: relative;
+        top: -2rem;
     }
     .blog-description {
         margin-bottom: 3rem;
