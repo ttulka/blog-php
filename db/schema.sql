@@ -26,6 +26,7 @@ CREATE TABLE `Post` (
   `title` VARCHAR(100) NOT NULL,
   `summary` TEXT,
   `body` TEXT,
+  `tags` VARCHAR(255) NULL,
   `isMenu` ENUM('true','false') NOT NULL DEFAULT 'false',
   `isDraft` ENUM('true','false') NOT NULL DEFAULT 'true',
   `authorId` INT(11) NOT NULL,

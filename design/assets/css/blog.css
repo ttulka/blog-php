@@ -4,7 +4,7 @@
     --primary: #00657e;
     --secondary: #82b2cf;
     --tertiary: #cdddeb;
-    --black: #111;
+    --black: #222;
     --white: #fff;
     --red: #dc3545;
     --yellow: #ffc107;
@@ -19,6 +19,7 @@
 body {
     color: var(--black, black);
     background-color: var(--white, white);
+    font-size: 1.2em;
     font-family: 'Mukta Vaani', sans-serif;
     margin: 0;
     padding: 0;
@@ -47,6 +48,10 @@ comments-app {
     clear: both;
 }
 
+.center {
+    text-align: center;
+}
+
 .quote {
     color: var(--gray, gray);
     font-style: italic;
@@ -62,15 +67,21 @@ comments-app {
     font-weight: bold;
 }
 
-.center {
-    text-align: center;
-}
-
 .caption {
     display: inline-block;
     font-size: 80%;
     font-style: italic;
     color: var(--gray, gray);
+}
+
+.definition {
+    position: relative;
+    left: -1rem;
+    margin-top: 1.5rem;
+    width: 100%;
+    padding: 1px 1rem 1rem 1rem;
+    background-color: var(--light, lightgray);
+    border-left: 1rem solid var(--lightgray, silver);
 }
 
 .button-outline-primary, .button-outline-secondary {
@@ -220,6 +231,26 @@ h2.blog-post__title {
     padding: 0 0.5rem;
 }
 
+.blog-tags {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.blog-tags .tag {
+    font-size: 80%;
+    color: var(--gray, steelblue);
+    border: 1px solid var(--lightgray, lightblue);
+    border-radius: 0.5em;
+    background-color: var(--lightgray, lightblue);
+    padding: 0 1em;
+    margin-right: 0.2rem;
+    text-decoration: none;
+}
+.blog-tags .tag:hover {
+    color: var(--lightgray, lightblue);
+    border-color: var(--gray, steelblue);
+    background-color: var(--gray, steelblue);
+}
+
 pre,
 code,
 .syntaxhighlighter {
@@ -246,7 +277,7 @@ code {
 @media (min-width: 42rem) {
     
     body {
-        font-size: 1.2em;
+        font-size: 1.5em;
     }
     .nav {
         padding: 0 1rem;
@@ -289,5 +320,8 @@ code {
     }
     .blog-description {
         font-size: 1.3em;
+    }
+    .blog-tags {
+        text-align: right;
     }
 }
