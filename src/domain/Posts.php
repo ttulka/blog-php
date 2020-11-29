@@ -13,7 +13,7 @@ class Posts {
 
     public function byUrl($url) {
         $stmt = $this->pdo->prepare("SELECT p.id, p.title, p.summary, p.body, p.createdAt, p.categoryId,
-                                            p.isMenu, a.id authorId, a.name authorName
+                                            p.isMenu, a.id authorId, a.name authorName, p.tags
                                         FROM Post p
                                         JOIN Author a ON p.authorId = a.id
                                         WHERE p.url = :url AND isDraft = 'false'");
@@ -22,7 +22,8 @@ class Posts {
         if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             return new PostDetailData($row['id'], $row['title'], $row['summary'], $row['body'],
                 $row['createdAt'], $row['isMenu'] === 'true' ? $url : $row['categoryId'],
-                $row['authorId'], $row['authorName']);
+                $row['authorId'], $row['authorName'], 
+                preg_split('/,[\s]*/', $row['tags'], -1, PREG_SPLIT_NO_EMPTY));
         }
         return null;
     }
@@ -90,8 +91,9 @@ class PostDetailData {
     public $caption;
     public $authorId;
     public $authorName;
+    public $tags;
 
-    public function __construct($id, $title, $summary, $body, $createdAt, $caption, $authorId, $authorName) {
+    public function __construct($id, $title, $summary, $body, $createdAt, $caption, $authorId, $authorName, $tags) {
         $this->id = $id;
         $this->title = $title;
         $this->summary = $summary;
@@ -100,6 +102,7 @@ class PostDetailData {
         $this->caption = $caption;
         $this->authorId = $authorId;
         $this->authorName = $authorName;
+        $this->tags = $tags;
     }
 }
 

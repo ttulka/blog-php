@@ -14,6 +14,18 @@
 
 </article>
 
+<?php 
+if (sizeof($this->post->tags) > 0) { ?>
+
+    <aside class="blog-tags">
+        <?php
+        foreach ($this->post->tags as $tag) { ?>
+            <span class="tag"><?= $tag ?></span> 
+        <?php } ?>
+    </aside>
+
+<?php } ?>
+
 <aside class="blog-comments">
   <noscript>You need to enable JavaScript to see comments.</noscript>
   <comments-app id="comments" 
