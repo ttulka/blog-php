@@ -40,6 +40,7 @@ class PostController extends AbstractBlogLayoutController {
 
         if (empty($posts)) {
             $this->setResponseCode(self::NOT_FOUND);
+            
         } else {
             $this->addModelAttribute('posts', $posts);
             $this->addModelAttribute('pagination', new Pagination(

@@ -43,7 +43,7 @@ class Posts {
             $q .= "AND CONCAT(',', p.tags, ',') LIKE :tag ";
         }
         $q .= 'ORDER BY p.createdAt DESC, p.id DESC ';
-        $q .= 'LIMIT '. ($page * $limit) .','. $limit;
+        $q .= 'LIMIT '. ($page * $limit) .','. ($limit+0);
         $stmt = $this->pdo->prepare($q);
         if ($categoryId !== null) {
             $stmt->bindValue('categoryId', $categoryId, PDO::PARAM_INT);
@@ -64,10 +64,10 @@ class Posts {
     }
 
     public function countBy($categoryId = null, $authorId = null, $tag = null) {
-        $q = 'SELECT COUNT(DISTINCT p.id) postsCount
+        $q = "SELECT COUNT(DISTINCT p.id) postsCount
                 FROM Post p
                 JOIN Author a ON p.authorId = a.id
-                WHERE 1=1 ';
+                WHERE isDraft = 'false' AND isMenu = 'false' ";
         if ($categoryId !== null) {
             $q .= 'AND p.categoryId = :categoryId ';
         }
