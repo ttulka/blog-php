@@ -43,7 +43,9 @@ class Pagination {
                 $query .= "&{$k}={$v}";
             }
         }
-        $query .= "&{$suffixQuery}";
+        if (!empty($suffixQuery)) {
+            $query .= "&{$suffixQuery}";
+        }
         return $query[0] === '&' ? substr($query, 1, strlen($query) - 1) : $query;
     }
 }
