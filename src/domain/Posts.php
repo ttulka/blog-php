@@ -28,7 +28,7 @@ class Posts {
         return null;
     }
 
-    public function listBy($categoryId = null, $authorId = null, $page = 0, $limit = 10) {
+    public function listBy($categoryId = null, $authorId = null, $tag = null, $page = 0, $limit = 10) {
         $q = "SELECT p.id, p.url, p.title, p.summary, p.createdAt, a.id authorId, a.name authorName
                 FROM Post p
                 JOIN Author a ON p.authorId = a.id
@@ -39,6 +39,9 @@ class Posts {
         if ($authorId !== null) {
             $q .= 'AND p.authorId = :authorId ';
         }
+        if ($tag !== null) {
+            $q .= "AND CONCAT(',', p.tags, ',') LIKE :tag ";
+        }
         $q .= 'ORDER BY p.createdAt DESC, p.id DESC ';
         $q .= 'LIMIT '. ($page * $limit) .','. $limit;
         $stmt = $this->pdo->prepare($q);
@@ -47,6 +50,9 @@ class Posts {
         }
         if ($authorId !== null) {
             $stmt->bindValue('authorId', $authorId, PDO::PARAM_INT);
+        }
+        if ($tag !== null) {
+            $stmt->bindValue('tag', "%,{$tag},%");
         }
         $stmt->execute();
         $posts = [];
@@ -57,7 +63,7 @@ class Posts {
         return $posts;
     }
 
-    public function countBy($categoryId = null, $authorId = null) {
+    public function countBy($categoryId = null, $authorId = null, $tag = null) {
         $q = 'SELECT COUNT(DISTINCT p.id) postsCount
                 FROM Post p
                 JOIN Author a ON p.authorId = a.id
@@ -68,12 +74,18 @@ class Posts {
         if ($authorId !== null) {
             $q .= 'AND p.authorId = :authorId ';
         }
+        if ($tag !== null) {
+            $q .= "AND CONCAT(',', p.tags, ',') LIKE :tag ";
+        }
         $stmt = $this->pdo->prepare($q);
         if ($categoryId !== null) {
             $stmt->bindValue('categoryId', $categoryId, PDO::PARAM_INT);
         }
         if ($authorId !== null) {
             $stmt->bindValue('authorId', $authorId, PDO::PARAM_INT);
+        }
+        if ($tag !== null) {
+            $stmt->bindValue('tag', "%,{$tag},%");
         }
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);

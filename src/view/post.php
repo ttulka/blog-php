@@ -15,12 +15,12 @@
 </article>
 
 <?php 
-if (sizeof($this->post->tags) > 0) { ?>
+if (!empty($this->post->tags)) { ?>
 
     <aside class="blog-tags">
         <?php
         foreach ($this->post->tags as $tag) { ?>
-            <span class="tag"><?= $tag ?></span> 
+            <a href="/?tag=<?= urlencode($tag) ?>" class="tag"><?= $tag ?></a> 
         <?php } ?>
     </aside>
 

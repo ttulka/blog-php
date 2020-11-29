@@ -33,12 +33,19 @@ class PostController extends AbstractBlogLayoutController {
     public function posts($params = []) {
         $categoryId = isset($params['category']) ? (int)$params['category'] : null;
         $authorId = isset($params['author']) ? (int)$params['author'] : null;
+        $tag = isset($params['tag']) ? $params['tag'] : null;
         $page = isset($params['page']) ? (int)$params['page'] : 0;
 
-        $this->addModelAttribute('posts', $this->posts->listBy($categoryId, $authorId, $page, $this->postsOnPage));
-        $this->addModelAttribute('pagination', new Pagination(
-            $page, $this->posts->countBy($categoryId, $authorId), $this->postsOnPage, $params));
-        $this->setActiveCaption($categoryId);
+        $posts = $this->posts->listBy($categoryId, $authorId, $tag, $page, $this->postsOnPage);
+
+        if (empty($posts)) {
+            $this->setResponseCode(self::NOT_FOUND);
+        } else {
+            $this->addModelAttribute('posts', $posts);
+            $this->addModelAttribute('pagination', new Pagination(
+                $page, $this->posts->countBy($categoryId, $authorId, $tag), $this->postsOnPage, $params));
+            $this->setActiveCaption($categoryId);
+        }
 
         $this->render('posts');
     }
