@@ -76,9 +76,10 @@ comments-app {
 
 .definition {
     position: relative;
+    box-sizing: border-box;
     left: -1rem;
-    margin-top: 1.5rem;
-    width: 100%;
+    margin: 1.5rem 0 0 0;
+    width: 100vw;
     padding: 1px 1rem 1rem 1rem;
     background-color: var(--light, lightgray);
     border-left: 1rem solid var(--lightgray, silver);
@@ -199,6 +200,10 @@ a.button-outline-secondary {
 }
 .blog-post {
     margin-bottom: 3rem;
+}
+.blog-post__title {
+    line-height: 1.2em;
+    margin-bottom: 0.3em;
 }
 .blog-post__title a {
     color: inherit;
