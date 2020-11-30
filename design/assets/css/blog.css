@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;700&display=swap');
 
 :root {
     --primary: #00657e;
@@ -13,14 +13,13 @@
     --lightgray: #e5e5e5;
     --light: #f9f9f9;
     --dark: #343a40;
-    --max-width: 75rem;
+    --max-width: 65rem;
 }
 
 body {
     color: var(--black, black);
     background-color: var(--white, white);
-    font-size: 1.2em;
-    font-family: 'Mukta Vaani', sans-serif;
+    font-family: Inter, sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -246,7 +245,7 @@ h2.blog-post__title {
     border: 1px solid var(--lightgray, lightblue);
     border-radius: 0.5em;
     background-color: var(--lightgray, lightblue);
-    padding: 0 1em;
+    padding: 0.3em 1em;
     margin-right: 0.2rem;
     text-decoration: none;
     white-space: nowrap;
@@ -283,7 +282,7 @@ code {
 @media (min-width: 42rem) {
     
     body {
-        font-size: 1.5em;
+        font-size: 1.3em;
     }
     .nav {
         padding: 0 1rem;
