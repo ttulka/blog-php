@@ -6,7 +6,7 @@
 <?php
 if (!empty($this->tag.'')) { ?>
   <div class="search-tags">
-    <span class="tag"><?= $this->tag ?></span>
+    <span class="tag"><?= htmlentities($this->tag) ?></span>
   </div>
 <?php } ?>
 
