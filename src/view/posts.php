@@ -4,6 +4,13 @@
 <hr>
 
 <?php
+if (!empty($this->tag.'')) { ?>
+  <div class="search-tags">
+    <span class="tag"><?= $this->tag ?></span>
+  </div>
+<?php } ?>
+
+<?php
 foreach ($this->posts as $post) { ?>
   <div class="blog-post">
     <h2 class="blog-post__title">

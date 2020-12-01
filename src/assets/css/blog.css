@@ -7,7 +7,9 @@
     --black: #222;
     --white: #fff;
     --red: #dc3545;
-    --yellow: #ffc107;
+    --yellow: #ffdf7e;
+    --lightyellow: #fffbea;
+    --darkyellow: #f0b100;
     --green: #28a745;
     --gray: #798486;
     --lightgray: #e5e5e5;
@@ -73,18 +75,32 @@ comments-app {
     color: var(--gray, gray);
 }
 
-.definition {
+.definition, .note {
     position: relative;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
+    box-sizing: border-box;
     left: -1rem;
     margin: 1.5rem 0 0 0;
+    padding: 1rem;
     width: 100vw;
     max-width: calc(var(--max-width) + 2rem);
-    padding: 1px 1rem 1rem 1rem;
     background-color: var(--light, lightgray);
     border-left: 1rem solid var(--lightgray, silver);
 }
+.definition p:first-child, .note p:first-child {
+    padding-top: 0;
+    margin-top: 0;
+}
+.note {
+    background-color: var(--lightyellow, lightyellow);
+    border-left: 1rem solid var(--yellow, gold);
+    font-style: italic;
+}
+.note .title {
+    color: var(--darkyellow, gold);
+}
+
 
 .button-outline-primary, .button-outline-secondary {
     display: inline-block;
@@ -253,8 +269,7 @@ h2.blog-post__title {
     text-align: center;
     margin-bottom: 2rem;
 }
-.blog-tags .tag {
-    font-size: 80%;
+.blog-tags .tag, .search-tags .tag {
     color: var(--gray, steelblue);
     border: 1px solid var(--lightgray, lightblue);
     border-radius: 0.5em;
@@ -266,7 +281,10 @@ h2.blog-post__title {
     text-decoration: none;
     white-space: nowrap;
 }
-.blog-tags .tag:hover {
+.blog-tags .tag {
+    font-size: 80%;
+}
+.blog-tags .tag:hover, .search-tags .tag:hover {
     color: var(--lightgray, lightblue);
     border-color: var(--gray, steelblue);
     background-color: var(--gray, steelblue);
@@ -349,5 +367,8 @@ code {
     }
     .blog-tags {
         text-align: right;
+    }    
+    .search-tags {
+        margin-bottom: 3rem;
     }
 }

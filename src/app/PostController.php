@@ -45,8 +45,11 @@ class PostController extends AbstractBlogLayoutController {
             $this->addModelAttribute('posts', $posts);
             $this->addModelAttribute('pagination', new Pagination(
                 $page, $this->posts->countBy($categoryId, $authorId, $tag), $this->postsOnPage, $params));
+            
             $this->setActiveCaption($categoryId);
         }
+
+        $this->addModelAttribute('tag', $tag === null ? '' : $tag);
 
         $this->render('posts');
     }
