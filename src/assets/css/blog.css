@@ -38,6 +38,9 @@ a:hover, a:active {
 p, h1, h2, h3, h4 {
     margin-bottom: 0;
 }
+p {
+    line-height: 1.3em;
+}
 
 hr {
     border: 0;
@@ -232,7 +235,7 @@ a.button-outline-secondary {
     margin-bottom: 3rem;
 }
 .blog-post h2, .blog-post h3, .blog-post h4 {
-    margin-top: 1.5em;
+    margin-top: 1.7em;
 }
 .blog-post__title a {
     color: inherit;
