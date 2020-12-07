@@ -1,4 +1,3 @@
-
 :root {
     --primary: #00657e;
     --secondary: #82b2cf;
@@ -21,7 +20,7 @@ body {
     color: var(--black, black);
     background-color: var(--white, white);
     font-family: -apple-system,Arial,sans-serif;
-    font-size: 1.1rem
+    font-size: 1.1rem;
     margin: 0;
     padding: 0;
 }
