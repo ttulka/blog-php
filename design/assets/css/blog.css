@@ -37,7 +37,7 @@ p, h1, h2, h3, h4 {
     margin-bottom: 0;
 }
 p {
-    line-height: 1.3em;
+    line-height: 1.4em;
 }
 
 hr {
@@ -236,6 +236,7 @@ h2.blog-post__title {
 .blog-post__meta {
     color: var(--gray, gray);
     margin: 0;
+    line-height: initial;
 }
 
 .footer {
@@ -283,7 +284,7 @@ h2.blog-post__title {
 pre,
 code,
 .syntaxhighlighter {
-    border: 1px dashed var(--lightgray, silver) !important;
+    border: 1px solid var(--lightgray, silver) !important;
     border-radius: 5px;
     background-color: var(--light, lightgray) !important;
 }
@@ -292,7 +293,10 @@ pre,
     box-sizing: border-box !important;
     margin: 2rem 0 !important;
     padding: 1rem 0 !important;
-}    
+}  
+.syntaxhighlighter .gutter {
+    display: none;
+}  
 pre {
     padding: 1rem !important;
     overflow: auto;
@@ -355,5 +359,9 @@ code {
     }    
     .search-tags {
         margin-bottom: 3rem;
+    }
+
+    .syntaxhighlighter .gutter {
+        display: initial;
     }
 }
