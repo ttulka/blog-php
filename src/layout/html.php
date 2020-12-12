@@ -56,7 +56,7 @@
       </div>
     </footer>
 
-    <script src="/assets/js/syntaxhighlighter.min.js"></script> 
+    <script src="/assets/js/syntaxhighlighter.min.js" defer></script>
     
   </body>
 </html>
