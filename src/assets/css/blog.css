@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;700&display=swap');
-
 :root {
     --primary: #00657e;
     --secondary: #82b2cf;
@@ -7,6 +5,7 @@
     --black: #222;
     --white: #fff;
     --red: #dc3545;
+    --lightred: #fff6f5;
     --yellow: #ffdf7e;
     --lightyellow: #fffbea;
     --darkyellow: #f0b100;
@@ -79,7 +78,7 @@ comments-app {
     color: var(--gray, gray);
 }
 
-.definition, .note {
+.definition, .note, .warning {
     position: relative;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
@@ -92,7 +91,7 @@ comments-app {
     background-color: var(--light, lightgray);
     border-left: 1rem solid var(--lightgray, silver);
 }
-.definition p:first-child, .note p:first-child {
+.definition p:first-child, .note p:first-child, .warning p:first-child {
     padding-top: 0;
     margin-top: 0;
 }
@@ -104,7 +103,15 @@ comments-app {
 .note .title {
     color: var(--darkyellow, gold);
 }
-.definition code, .note code {
+.warning {
+    background-color: var(--lightred, mistyrose);
+    border-left: 1rem solid var(--red, crimson);
+    font-style: italic;
+}
+.warning .title {
+    color: var(--red, crimson);
+}
+.definition code, .note code, .warning code {
     font-style: initial;
 }
 
