@@ -386,7 +386,7 @@ code {
 .dark .nav a.active::after {
     border-bottom-color: #000;
 }
-.dark .main .blog-post p a {
+.dark .main .blog-post p a, .dark .main .blog-post li a {
     color: var(--secondary, lightblue);
 }
 .dark .main .blog-post img {
