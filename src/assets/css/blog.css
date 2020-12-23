@@ -397,3 +397,29 @@ code {
         display: initial;
     }
 }
+
+.dark {
+    background-color: #000;
+    color: var(--darkblack, #fff);
+}
+.dark .nav a.active::after {
+    border-bottom-color: #000;
+}
+.dark .comments {
+    color: initial;
+}
+.dark .main .blog-post img {
+    background-color: #fff;
+    padding: 1rem;
+}
+.dark .definition, .dark .note, .dark .warning, .dark code, .dark pre {
+    color: initial;
+}
+.dark a.button-outline-primary.disabled, .dark a.button-outline-secondary.disabled {
+    border-color: var(--dark, gray);
+    background-color: inherit;
+    color: var(--dark, gray);
+}
+.dark .footer {
+    background-color: var(--black, #222);
+}

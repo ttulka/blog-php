@@ -32,6 +32,7 @@
         <div class="ext-links">
           <a href="https://twitter.com/tomas_tulka"><img src="/assets/img/twitter.png"></a>
           <a href="https://github.com/ttulka"><img src="/assets/img/github.png"></a>
+          <a href="#" class="theme"><img src="/assets/img/theme.png"></a>
         </div>
       </div>
     </header>
@@ -90,6 +91,10 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id enim enim. Duis ullamcorper quam porta velit viverra feugiat. Aenean sed lectus vel eros tempus imperdiet. Duis mattis quis neque sed ullamcorper. Vivamus arcu purus, porta laoreet luctus eu, convallis sit amet purus. Nunc finibus augue ac varius fermentum. Maecenas vitae libero elit. Duis fermentum tellus id nulla dapibus, vel vulputate nibh volutpat. Vivamus et sodales est, at consequat risus. Donec fringilla mi ac suscipit eleifend. Morbi volutpat orci dui, sed elementum sem ullamcorper id. Mauris molestie felis eleifend, luctus turpis tincidunt, maximus tortor.</p>
 
         <p class="note"><span class="title">Disclamer:</span> Nullam id enim enim. Duis ullamcorper quam porta velit viverra feugiat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id enim enim. Duis ullamcorper quam porta velit viverra feugiat.</p>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        
+        <p class="warning"><span class="title">Warning:</span> Nullam id enim enim. Duis ullamcorper quam porta velit viverra feugiat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id enim enim. Duis ullamcorper quam porta velit viverra feugiat.</p>
 
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
@@ -151,6 +156,18 @@ public Account login(String username, String password) {
         <noscript>You need to enable JavaScript to see comments.</noscript>
         <comments-app id="comments" service="https://blog.ttulka.com/" postId="74"></comments-app>
         <script src="/assets/js/comments.min.js"></script>
+        
+        <div class="comments">
+        <div class="container"><comments-comment>
+            <span slot="author">Author 1</span>
+            <span slot="createdAt">12/8/2020</span>
+            <span slot="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent consectetur massa id sem mattis cursus. Curabitur convallis feugiat mi, consectetur fringilla neque mattis id.</span>
+        </comments-comment><comments-comment>
+            <span slot="author">Author 2</span>
+            <span slot="createdAt">11/22/2020</span>
+            <span slot="body">Curabitur cursus consectetur hendrerit. Nullam id mauris facilisis nunc luctus suscipit. Morbi iaculis sem eu placerat facilisis.</span>
+        </comments-comment></div>    
+    <comments-loading style="display: none;"></comments-loading><comments-pagination style="display: none;"></comments-pagination></div>
       </aside>
     </main>
     
@@ -163,7 +180,13 @@ public Account login(String username, String password) {
         </div>
       </div>
     </footer>
-
+    
+    <script>
+        let dark = false;
+        document.querySelector('a.theme').onclick = e => (dark = !dark)
+            ? document.body.classList.add('dark')
+            : document.body.classList.remove('dark');
+    </script>
     <script src="/assets/js/syntaxhighlighter.min.js"></script> 
   </body>
 </html>
