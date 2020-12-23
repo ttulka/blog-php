@@ -405,9 +405,6 @@ code {
 .dark .nav a.active::after {
     border-bottom-color: #000;
 }
-.dark .blog-comments {
-    color: initial;
-}
 .dark .main .blog-post img {
     box-sizing: border-box;
     background-color: #fff;
