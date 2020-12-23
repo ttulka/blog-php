@@ -405,12 +405,14 @@ code {
 .dark .nav a.active::after {
     border-bottom-color: #000;
 }
-.dark .comments {
+.dark .blog-comments {
     color: initial;
 }
 .dark .main .blog-post img {
+    box-sizing: border-box;
     background-color: #fff;
     padding: 1rem;
+    border-radius: 0.5rem;
 }
 .dark .definition, .dark .note, .dark .warning, .dark code, .dark pre {
     color: initial;

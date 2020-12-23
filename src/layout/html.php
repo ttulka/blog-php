@@ -36,6 +36,7 @@
         <div class="ext-links">
           <a href="https://twitter.com/tomas_tulka"><img src="/assets/img/twitter.png"></a>
           <a href="https://github.com/ttulka"><img src="/assets/img/github.png"></a>
+          <a href="#" class="theme"><img src="/assets/img/theme.png"></a>
         </div>
       </div>
     </header>
@@ -56,6 +57,7 @@
       </div>
     </footer>
 
+    <script src="/assets/js/darktheme.js"></script> 
     <script src="/assets/js/syntaxhighlighter.min.js" defer></script>
     
   </body>
