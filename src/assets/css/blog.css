@@ -14,6 +14,8 @@
     --lightgray: #e5e5e5;
     --light: #f9f9f9;
     --dark: #343a40;
+    --darkbg: #001317;
+    --darkfg: #fff;
     --max-width: 55rem;
 }
 
@@ -399,8 +401,8 @@ code {
 }
 
 .dark {
-    background-color: #000;
-    color: var(--darkblack, #fff);
+    background-color: var(--darkbg, #000);
+    color: var(--darkfg, #fff);
 }
 .dark .nav a.active::after {
     border-bottom-color: #000;
@@ -423,5 +425,5 @@ code {
     color: var(--dark, gray);
 }
 .dark .footer {
-    background-color: var(--black, #222);
+    background-color: var(--dark, #222);
 }
