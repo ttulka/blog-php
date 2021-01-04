@@ -412,7 +412,7 @@ code {
 .dark .nav a.active::after {
     border-bottom-color: #000;
 }
-.dark .main .blog-post p a, .dark .main .blog-post li a, .dark .footer a {
+.dark .main .blog-post p a, .dark .main .blog-post li a, .dark .main .blog-post dt a, .dark .main .blog-post dd a, .dark .footer a {
     color: var(--secondary, lightblue);
 }
 .dark .main .blog-post img {
