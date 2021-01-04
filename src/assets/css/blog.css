@@ -50,6 +50,11 @@ hr {
     margin: 2rem 0;
 }
 
+dt {
+    font-weight: bold;
+    margin-top: 1em;
+}
+
 comments-app {
     clear: both;
 }
