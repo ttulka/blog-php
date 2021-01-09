@@ -410,7 +410,7 @@ code {
     color: var(--darkfg, #fff);
 }
 .dark .nav a.active::after {
-    border-bottom-color: #000;
+    border-bottom-color: var(--darkbg, #000);
 }
 .dark .main .blog-post p a, .dark .main .blog-post li a, .dark .main .blog-post dt a, .dark .main .blog-post dd a, .dark .footer a {
     color: var(--secondary, lightblue);
