@@ -191,7 +191,7 @@
   .syntaxhighlighter .plain, .syntaxhighlighter .plain a {
     color: black !important; }
   .syntaxhighlighter .comments, .syntaxhighlighter .comments a {
-    color: #3f5fbf !important; }
+    color: #999 !important; }
   .syntaxhighlighter .string, .syntaxhighlighter .string a {
     color: #2a00ff !important; }
   .syntaxhighlighter .keyword {
