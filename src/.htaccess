@@ -4,7 +4,7 @@ RewriteEngine on
 # Remove this after a while together with legacy.php
 RewriteRule ^(.+)-([0-9]+)$ legacy.php?id=$2 [NC,L] 
 
-RewriteRule !\.(js|ico|gif|jpg|png|css|html|htm|xml|txt|dat|pdf|json|php|jar|zip|ttf|woff|woff2)$ index.php [NC,L] 
+RewriteRule !\.(js|ico|gif|jpg|png|css|html|htm|xml|txt|dat|pdf|json|php|jar|zip|ttf|woff|woff2|wat|wasm)$ index.php [NC,L] 
 
 # PHP settings
 php_flag magic_quotes_gpc off
