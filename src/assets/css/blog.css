@@ -192,7 +192,7 @@ a.button-outline-secondary {
 .nav a {
     display: block;
     position: relative;
-    padding: 1rem;
+    padding: 2rem 1rem;
     text-decoration: none;
     color: var(--tertiary, silver);
 }
@@ -230,8 +230,7 @@ a.button-outline-secondary {
 
 .main {
     padding: 0 1rem;
-    margin-top: 2rem;
-    margin-bottom: 2.5rem;
+    margin: 2.5rem 0;
 }
 .main img {
     max-width: 100%;
@@ -242,7 +241,7 @@ a.button-outline-secondary {
     top: -1rem;
 }
 .blog-title {
-    font-size: 2em;
+    font-size: 1.8em;
 }
 .blog-description {
     color: var(--gray, gray);
@@ -261,10 +260,10 @@ a.button-outline-secondary {
     margin-bottom: 0.3em;
 }
 h1.blog-post__title {
-    font-size: 2em;
+    font-size: 1.7em;
 }
 h2.blog-post__title {
-    font-size: 1.5em;
+    font-size: 1.3em;
     margin-top: 1em;
 }
 .blog-post__meta {
@@ -388,7 +387,7 @@ code {
     }
 
     .blog-title {
-        font-size: 3em;
+        font-size: 2.5em;
     }
     .blog-description {
         font-size: 1.3em;
