@@ -230,7 +230,8 @@ a.button-outline-secondary {
 
 .main {
     padding: 0 1rem;
-    margin: 2.5rem 0;
+    margin-top: 3rem;
+    margin-bottom: 2.5rem;
 }
 .main img {
     max-width: 100%;
